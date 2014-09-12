@@ -1,0 +1,31 @@
+{% extends "muecke/base.html" %}
+{% load i18n %}
+{% load muecke_tags %}
+
+{% block wrapper %}
+    <div class="span-5">
+        {% block left-slot %}
+            <h1>{% trans 'My account' %}</h1>
+            <ul class="navigation-body">
+                <li>
+                    <a href="{% url muecke_my_account %}">{% trans 'Overview' %}</a>
+                </li>
+                <li>
+                    <a href="{% url muecke_my_orders %}">{% trans 'Your orders' %}</a>
+                </li>
+                <li>
+                    <a href="{% url muecke_my_password %}">{% trans 'Change password' %}</a>
+                </li>
+                <li>
+                    <a href="{% url muecke_my_email %}">{% trans 'Change e-mail' %}</a>
+                </li>
+                <li>
+                    <a href="{% url muecke_my_addresses %}">{% trans 'Change addresses' %}</a>
+                </li>
+            </ul>
+        {% endblock %}
+    </div>
+    <div class="span-19 last">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}

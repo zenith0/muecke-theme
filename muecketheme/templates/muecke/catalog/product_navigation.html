@@ -1,0 +1,16 @@
+{% load i18n %}
+<div class="product-navigation">
+    {% if display %}
+        {% if previous %}
+            <a class="next_back_product_button" href="{% url muecke_product previous %}">&lt; {% trans 'Previous product' %}</a>
+        {% else %}
+            &lt; {% trans 'Previous product' %}
+        {% endif %}
+        - {{ current }} {% trans 'of' %} {{ total }} -
+        {% if next %}
+            <a class="next_back_product_button" href="{% url muecke_product next %}">{% trans 'Next product' %} &gt;</a>
+        {% else %}
+            {% trans 'Next product' %} &gt;
+        {% endif %}
+    {% endif %}
+</div>

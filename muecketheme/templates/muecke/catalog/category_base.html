@@ -1,0 +1,35 @@
+{% extends "muecke/base.html" %}
+{% load muecke_tags  %}
+{% load muecke_portlets_tags %}
+{% load muecke_theme_tags %}
+
+{% block title %}
+    {{ category.get_meta_title }} - {{ block.super }}
+{% endblock %}
+
+{% block section %}category{% endblock %}
+
+{% block head %}
+    {% if category.get_meta_keywords %}
+        <meta name="keywords" content="{{category.get_meta_keywords}}" />
+    {% endif %}
+    {% if category.get_meta_description %}
+        <meta name="description" content="{{category.get_meta_description}}" />
+    {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+    {% breadcrumbs category %}
+{% endblock %}
+
+{% block left-slot %}
+    {% muecke_portlet_slot 'Left' %}
+{% endblock %}
+
+{% block content %}
+    {{ category.static_block.html|safe }}
+    {{ category_inline|safe }}
+{% endblock %}
+
+
+

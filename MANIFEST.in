@@ -1,0 +1,4 @@
+include README.txt
+recursive-include muecketheme/locale *
+recursive-include muecketheme/static *
+recursive-include muecketheme/templates *

@@ -1,0 +1,35 @@
+{% load i18n %}
+{% load muecke_tags %}
+
+<div class="tabs">
+    <ul id="nav" class="dropdown dropdown-horizontal">
+        <li>
+            <a href="/">
+                {% trans 'Home' %}
+            </a>                                            
+        </li>
+		<li>
+			<a href="">
+                Shop
+            		</a> 
+				<ul>				
+					
+				{% for category in categories %}
+				<li>
+                        		<a href="{{ category.url }}">
+                            		{{category.name }}
+                        		</a>
+					
+                    		</li>
+                			{% endfor %}
+            			</ul> 
+        </li> 
+        {% for tab in tabs %}
+            <li {% if tab.selected %}class="selected"{% endif %}>
+                <a href="{{ tab.link }}">
+                    {{ tab.title }}
+                </a>                                
+            </li>            
+        {% endfor %}
+    </ul>
+</div>
